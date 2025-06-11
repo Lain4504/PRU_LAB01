@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip buttonClickSFX;
     [SerializeField] private AudioClip shootSFX;
 
-   
+    // Thêm các biến âm lượng cho từng file âm thanh (giá trị từ 0 đến 1)
     [SerializeField, Range(0f, 1f)] private float menuBGMusicVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float gameBGMusicVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float asteroidDestroySFXVolume = 1f;
@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
             if (bgMusicSource.clip != menuBGMusic)
             {
                 bgMusicSource.clip = menuBGMusic;
-                bgMusicSource.volume = menuBGMusicVolume; 
+                bgMusicSource.volume = menuBGMusicVolume; // Áp dụng âm lượng riêng
                 bgMusicSource.Play();
                 Debug.Log("Playing Menu BG Music with volume: " + menuBGMusicVolume);
             }
@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
             if (bgMusicSource.clip != gameBGMusic)
             {
                 bgMusicSource.clip = gameBGMusic;
-                bgMusicSource.volume = gameBGMusicVolume; 
+                bgMusicSource.volume = gameBGMusicVolume; // Áp dụng âm lượng riêng
                 bgMusicSource.Play();
                 Debug.Log("Playing Game BG Music with volume: " + gameBGMusicVolume);
             }
@@ -103,7 +103,7 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxSource != null && asteroidDestroySFX != null)
         {
-            sfxSource.PlayOneShot(asteroidDestroySFX, asteroidDestroySFXVolume); 
+            sfxSource.PlayOneShot(asteroidDestroySFX, asteroidDestroySFXVolume); // Áp dụng âm lượng riêng
             Debug.Log("Playing Asteroid Destroy SFX with volume: " + asteroidDestroySFXVolume);
         }
         else
@@ -116,7 +116,7 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxSource != null && powerUpSFX != null)
         {
-            sfxSource.PlayOneShot(powerUpSFX, powerUpSFXVolume); 
+            sfxSource.PlayOneShot(powerUpSFX, powerUpSFXVolume); // Áp dụng âm lượng riêng
             Debug.Log("Playing Power Up SFX with volume: " + powerUpSFXVolume);
         }
         else
@@ -129,7 +129,7 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxSource != null && buttonClickSFX != null)
         {
-            sfxSource.PlayOneShot(buttonClickSFX, buttonClickSFXVolume); 
+            sfxSource.PlayOneShot(buttonClickSFX, buttonClickSFXVolume); // Áp dụng âm lượng riêng
             Debug.Log("Playing Button Click SFX with volume: " + buttonClickSFXVolume);
         }
         else
@@ -142,7 +142,7 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxSource != null && shootSFX != null)
         {
-            sfxSource.PlayOneShot(shootSFX, shootSFXVolume); 
+            sfxSource.PlayOneShot(shootSFX, shootSFXVolume); // Áp dụng âm lượng riêng
             Debug.Log("Playing Shoot SFX with volume: " + shootSFXVolume);
         }
         else
