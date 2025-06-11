@@ -4,15 +4,15 @@ public class PowerUp : MonoBehaviour
 {
     public enum PowerUpType
     {
-        Star,       
+        Star,      
         UpgradeShot, 
-        Shield,     
-        Invincibility 
+        Shield,  
+        Invincibility
     }
 
     [SerializeField] private PowerUpType type;
     [SerializeField] private float fallSpeed = 1f; 
-    [SerializeField] private int scoreValue = 200; 
+    [SerializeField] private int scoreValue = 200;
     [SerializeField] private float duration = 5f; 
 
     private Rigidbody2D rb;
@@ -23,7 +23,7 @@ public class PowerUp : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb.linearVelocity = new Vector2(0, -fallSpeed); 
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 10f); 
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -32,7 +32,7 @@ public class PowerUp : MonoBehaviour
         {
             PlayerController player = collision.GetComponent<PlayerController>();
             ApplyPowerUp(player);
-            Destroy(gameObject);
+            Destroy(gameObject); 
         }
     }
 
@@ -46,10 +46,10 @@ public class PowerUp : MonoBehaviour
                 break;
 
             case PowerUpType.UpgradeShot:
-                int currentShotLevel = player.GetCurrentShotLevel();
+                int currentShotLevel = player.GetCurrentShotLevel(); 
                 if (currentShotLevel < 3)
                 {
-                    player.UpgradeShot(); // Nâng cấp đạn
+                    player.UpgradeShot();
                     Debug.Log("Upgraded to Shot Level " + (currentShotLevel + 1));
                 }
                 else
@@ -75,7 +75,6 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    
     public void SetPowerUpType(PowerUpType newType)
     {
         type = newType;

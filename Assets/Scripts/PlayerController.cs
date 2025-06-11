@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         Instantiate(p, firingPoint.position, Quaternion.identity, null).handleProjectile();
         if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.PlayShootSFX(); // Phát âm thanh khi bắn đạn
+            AudioManager.Instance.PlayShootSFX(); 
         }
     }
 

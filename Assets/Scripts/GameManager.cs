@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     }    
     public void SaveGameData(float survivalTime)
     {
-        // Lấy danh sách điểm số hiện tại từ PlayerPrefs
         int currentHighScoreCount = PlayerPrefs.GetInt("HighScoreCount", 0);
         string[] scores = new string[currentHighScoreCount];
         string[] times = new string[currentHighScoreCount];
@@ -47,17 +46,14 @@ public class GameManager : MonoBehaviour
             times[i] = PlayerPrefs.GetString("Time" + i, "00:00");
         }
 
-        // Thêm điểm và thời gian mới
         string newTime = string.Format("{0:00}:{1:00}", (int)survivalTime / 60, (int)survivalTime % 60);
         string newEntry = score + "|" + newTime;
 
-        // Chèn vào mảng
         System.Array.Resize(ref scores, currentHighScoreCount + 1);
         System.Array.Resize(ref times, currentHighScoreCount + 1);
         scores[currentHighScoreCount] = score.ToString();
         times[currentHighScoreCount] = newTime;
 
-        // Sắp xếp mảng theo điểm (giảm dần)
         for (int i = 0; i < scores.Length - 1; i++)
         {
             for (int j = i + 1; j < scores.Length; j++)
@@ -74,14 +70,12 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Giữ chỉ top 5
         if (scores.Length > 5)
         {
             System.Array.Resize(ref scores, 5);
             System.Array.Resize(ref times, 5);
         }
 
-        // Lưu lại vào PlayerPrefs
         PlayerPrefs.SetInt("HighScoreCount", scores.Length);
         for (int i = 0; i < scores.Length; i++)
         {
@@ -91,7 +85,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // Reset score khi bắt đầu chơi mới
     public void ResetScore()
     {
         score = 0;

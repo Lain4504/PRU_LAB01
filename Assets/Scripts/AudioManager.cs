@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip buttonClickSFX;
     [SerializeField] private AudioClip shootSFX;
 
-   
     [SerializeField, Range(0f, 1f)] private float menuBGMusicVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float gameBGMusicVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float asteroidDestroySFXVolume = 1f;
@@ -103,7 +102,7 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxSource != null && asteroidDestroySFX != null)
         {
-            sfxSource.PlayOneShot(asteroidDestroySFX, asteroidDestroySFXVolume); 
+            sfxSource.PlayOneShot(asteroidDestroySFX, asteroidDestroySFXVolume);
             Debug.Log("Playing Asteroid Destroy SFX with volume: " + asteroidDestroySFXVolume);
         }
         else
